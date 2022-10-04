@@ -16,7 +16,7 @@
 
 <FetchData test="devices?.ToList()"></FetchData>
 
-<Counter test="devices?.ToList()"></Counter>
+<Counter Add="ChangeDevice"></Counter>
 
 
 
@@ -45,4 +45,16 @@
 
         public string DeviceData { get; set; }
     }
+
+    private async Task ChangeDevice(string text)
+
+    {
+        devices[0].DeviceData = text;
+
+
+    }
+
 }
+
+
+

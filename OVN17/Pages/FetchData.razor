@@ -35,13 +35,14 @@ else
                     <td>@item.Active</td>
                     <td>@item.DeviceData</td>
                     <td><button class="btn btn-primary" @onclick="()=>DeleteDevice(item)">Delete</button></td
-                    <td><button class="btn btn-primary" @onclick="()=>ToggleDevice(item)">On/Off</button></td
+                    <td><button class="btn btn-primary" @onclick="()=>ToggleDevice(item)">On/Off</button></td>
+                    
                 </tr>
             }
         </tbody>
     </table>
 
-
+   
   
 
 }
@@ -63,8 +64,11 @@ else
         if (item.Active)  item.Active = false; 
         else item.Active = true;
 
-}
-
+    }
+    private async Task ChangeDevice(string text)
+    {
+    
+    }
 }
 
 
