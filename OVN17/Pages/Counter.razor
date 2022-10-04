@@ -5,17 +5,15 @@
 <PageTitle>Counter</PageTitle>
 
 <h1>Change device config</h1>
-@*
-<EditForm Model="@test">
+
+@*<EditForm Model="@test">
 
     <InputText id="Name" @bind-Value="@Device.Name" placeholder="Enter device name"></InputText>
     <InputText id="Id" @bind-Value="@Device.Id" placeholder="Enter device id"></InputText>
     <InputText id="DeviceData" @bind-Value="Device.DeviceData" placeholder="Enter device data"></InputCheckbox>
     <InputCheckbox id="Active" @bind-Value="Device.Active" placeholder="Active?"></InputCheckbox>
 </EditForm>
-
 *@
-
 
 @code {
     [Parameter]

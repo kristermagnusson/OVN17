@@ -35,13 +35,14 @@ else
                     <td>@item.Active</td>
                     <td>@item.DeviceData</td>
                     <td><button class="btn btn-primary" @onclick="()=>DeleteDevice(item)">Delete</button></td
+                    <td><button class="btn btn-primary" @onclick="()=>ToggleDevice(item)">On/Off</button></td
                 </tr>
             }
         </tbody>
     </table>
 
 
-  @* <button class="btn btn-primary" @onclick="CreateDevice">Create Device</button>*@
+  
 
 }
 
@@ -56,21 +57,21 @@ else
     {
         test.Remove(item);
     }
-}
 
-
-
-
-
-
-
-
-
-@code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    public void ToggleDevice(Device item)
     {
-        currentCount++;
-    }
+        if (item.Active)  item.Active = false; 
+        else item.Active = true;
+
 }
+
+}
+
+
+
+
+
+
+
+
+

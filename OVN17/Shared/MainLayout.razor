@@ -1,11 +1,11 @@
 ﻿@inherits LayoutComponentBase
-@inject HttpClient Http
+
 
 <div class="page">
     
     <div class="sidebar">
         
-       @* <NavMenu  />*@
+      @* <NavMenu  />*@
         <OVN17.Pages.Loader/>
     </div>
 
@@ -19,22 +19,3 @@
         </article>
     </main>
 </div>
-@*@code {
-    private Device[]? devices;
-
-    protected override async Task OnInitializedAsync()
-    {
-        devices = await Http.GetFromJsonAsync<Device[]>("sample-data/Machines.json");
-    }
-
-    public class Device
-    {
-        public string Id { get; set; }
-
-        public string Name { get; set; }
-
-        public bool Active { get; set; }
-
-        public string DeviceData { get; set; }
-    }
-}*@
