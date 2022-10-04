@@ -18,8 +18,8 @@ using ErrorBoundaries.Data
     </div>
 
     <div class="row">
-    <div class="nav-item px-4 text-white col">@devices.Count()</div>
-        <div class=" text-white col">@devices.Where(g=>g.Active==true).Count()</div>
+    <div class="nav-item px-4 text-white col">@devices?.Count()</div>
+        <div class=" text-white col">@devices?.Where(g=>g.Active==true).Count()</div>
     </div>
 
 
