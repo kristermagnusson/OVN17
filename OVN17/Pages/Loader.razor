@@ -1,0 +1,73 @@
+﻿@page "/loader"
+using ErrorBoundaries.Data
+@using static OVN17.Shared.MainLayout
+@inject HttpClient Http
+
+<PageTitle>Loader</PageTitle>
+
+
+
+
+<div class="nav-item px-4 text-white" ><h3>OverView</h3></div>
+<br />
+     
+
+    <div class="row">
+        <div class="nav-item px-4 text-white col">Devices</div>
+        <div class=" text-white col">Working</div>
+    </div>
+
+    <div class="row">
+    <div class="nav-item px-4 text-white col">@devices.Count()</div>
+        <div class=" text-white col">@devices.Where(g=>g.Active==true).Count()</div>
+    </div>
+
+
+
+
+
+@code {
+    private Device[]? devices;
+
+    protected override async Task OnInitializedAsync()
+    {
+        devices = await Http.GetFromJsonAsync<Device[]>("sample-data/Machines.json");
+    }
+
+    public class Device
+    {
+        public string Id { get; set; }
+
+        public string Name { get; set; }
+
+        public bool Active { get; set; }
+
+        public string DeviceData { get; set; }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@code {
+    [Parameter]
+
+    public List<Device> test { get; set; }
+
+}
+
+*@
+
+

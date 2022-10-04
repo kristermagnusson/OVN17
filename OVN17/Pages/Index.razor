@@ -1,0 +1,44 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>Index</PageTitle>
+@*
+<NavLink class="nav-link" href="FetchData">cc</NavLink>
+*@
+
+
+
+<PageTitle>
+    Current Devices
+
+</PageTitle>
+
+
+
+<FetchData test="devices.ToList()"></FetchData>
+
+<Counter test="devices.ToList()"></Counter>
+
+
+
+
+
+@code {
+    private Device[]? devices;
+
+    protected override async Task OnInitializedAsync()
+    {
+        devices = await Http.GetFromJsonAsync<Device[]>("sample-data/Machines.json");
+    }
+
+    public class Device
+    {
+        public string Id { get; set; }
+
+        public string Name { get; set; }
+
+        public bool Active { get; set; }
+
+        public string DeviceData { get; set; }
+    }
+}

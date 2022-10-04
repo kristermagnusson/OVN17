@@ -1,0 +1,77 @@
+﻿@page "/fetchdata"
+@using static OVN17.Pages.Index
+@using static OVN17.Shared.MainLayout
+@inject HttpClient Http
+
+<PageTitle>Current Devices
+
+</PageTitle>
+
+<h1>Current Devices</h1>
+
+
+
+@if (test == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Active</th>
+                <th>Devicedata</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in test)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Active</td>
+                    <td>@item.DeviceData</td>
+                    <td><button button @onclick="()=>DeleteDevice(item)">Delete</button></td
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+  @* <button class="btn btn-primary" @onclick="CreateDevice">Create Device</button>*@
+
+}
+
+
+
+@code{
+    [Parameter]
+    public List<Device> test { get; set; }
+
+
+    public void DeleteDevice(Device item)
+    {
+        test.Remove(item);
+    }
+}
+
+
+
+
+
+
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

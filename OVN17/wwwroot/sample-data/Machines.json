@@ -1,0 +1,32 @@
+﻿[
+  {
+    "Id": "001",
+    "Name": "M1",
+    "Active": true,
+    "DeviceData": "1"
+  },
+  {
+    "Id": "002",
+    "Name": "m2",
+    "Active": true,
+    "DeviceData": "2"
+  },
+  {
+    "Id": "003",
+    "Name": "m3",
+    "Active": false,
+    "DeviceData": "3"
+  },
+  {
+    "Id": "004",
+    "Name": "M4",
+    "Active": true,
+    "DeviceData": "4"
+  },
+  {
+    "Id": "005",
+    "Name": "m5",
+    "Active": false,
+    "DeviceData": "5"
+  }
+]
