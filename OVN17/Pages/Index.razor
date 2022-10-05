@@ -46,11 +46,20 @@
         public string DeviceData { get; set; }
     }
 
+    public class DData
+    {
+        public string Id { get; set; }
+        public string DeviceData { get; set; }
+    }
 
-    private async Task ChangeDevice(string text)
+
+    private async Task ChangeDevice(DData dData)
 
     {
-        devices[0].DeviceData = text;
+        foreach (var item in devices)
+        {
+            if (item.Id == dData.Id) item.DeviceData = dData.DeviceData;
+        }
 
 
     }
