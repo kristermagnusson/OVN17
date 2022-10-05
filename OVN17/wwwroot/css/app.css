@@ -62,3 +62,19 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+
+.NoModules {
+    margin: 1%;
+    padding: 5%;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 2%;
+    margin-left: 5%;
+    background-color:blue;
+    font-size: larger;
+    border-block-style: double;
+    border-left-style: double;
+    border-right-style: double;
+}

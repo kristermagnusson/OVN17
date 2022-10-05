@@ -1,0 +1,41 @@
+﻿@page "/stat"
+@using static OVN17.Pages.Index
+
+    <div class=" container border border-primary">
+        <div class="row ">
+            <div class="text-center">
+            OverView
+        </div>
+        </div>
+    <div class="row">
+        
+        <div class=" col-2">Devices</div>
+        <div class=" col-2">Working</div>
+        <div class=" col-2">Last Changed</div>
+    </div>
+
+    <div class="row">
+        
+        <div class=" col-2">@test?.Count()</div>
+        <div class=" col-2">@test?.Where(g=>g.Active==true).Count()</div>
+
+    </div>
+
+
+</div>
+
+
+    
+
+   
+    
+
+
+
+
+
+@code {
+    [Parameter]
+    public List<Device> test { get; set; }
+
+}

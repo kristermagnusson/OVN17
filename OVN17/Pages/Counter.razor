@@ -4,10 +4,10 @@
 
 <PageTitle>Counter</PageTitle>
 
-<h1>Change device config</h1>
+<h2>Change device config</h2>
 
 <div class="input-group">
-    <input @bind="test"  type="text" class="form-control" placeholder=" DeviceData" >
+    <input @bind="devicedata"  type="text" class="form-control" placeholder=" DeviceData" >
     <div class="input-group-append">
 <button @onclick="OnAdd" @onclick:preventDefault="true" type="submit" class="btn btn-info">Add</button>
     </div>
@@ -16,18 +16,18 @@
 
 
 
-<h1>@test</h1>
+
 
 
 @code {
-    
-    private string test  = string.Empty;
+   
+    private string devicedata  = string.Empty;
     [Parameter]
     public EventCallback<string> Add { get; set; } 
     public async Task OnAdd()
     {
         
-        await Add.InvokeAsync(test);
+        await Add.InvokeAsync(devicedata);
     }
 }
 
