@@ -40,6 +40,7 @@ else
                     <td>@item.DeviceData</td>
                     <td><button class="btn btn-primary" @onclick="()=>DeleteDevice(item)">Delete</button></td
                     <td><button class="btn btn-primary" @onclick="()=>ToggleDevice(item)">On/Off</button></td>
+                    <td><button class="btn btn-primary" @onclick="()=>RndData(item)">New Data</button></td>
                     
                 </tr>
             }
@@ -67,7 +68,22 @@ else
     {
         if (item.Active)  item.Active = false; 
         else item.Active = true;
+    }
 
+    public void RndData(Device item)
+    {Random rnd = new Random();
+        item.DeviceData = rnd.Next(25).ToString();
+        foreach( var t in test)
+        {
+            if (t.Id==item.Id)
+            {
+                t.LastData = true;
+            }
+            else
+            {
+                t.LastData = false;
+            }
+        }
     }
     //private async Task ChangeDevice(string text)
     //{

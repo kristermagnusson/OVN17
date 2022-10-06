@@ -14,10 +14,10 @@
 
 
 
-<FetchData test="devices?.ToList()"></FetchData>
+<FetchData test="devices"></FetchData>
 
 <Counter Add="ChangeDevice"></Counter>
-
+<Adder ddevice="NewDevice"></Adder>
 
 
 
@@ -28,12 +28,16 @@
 
 
 @code {
-    private Device[]? devices;
+    private List<Device> devices = new List<Device>();
+
+
 
     protected override async Task OnInitializedAsync()
     {
-        devices = await Http.GetFromJsonAsync<Device[]>("sample-data/Machines.json");
+        devices = (await Http.GetFromJsonAsync<IEnumerable<Device>>("sample-data/Machines.json")).ToList();
+
     }
+
 
     public class Device
     {
@@ -44,6 +48,9 @@
         public bool Active { get; set; }
 
         public string DeviceData { get; set; }
+
+        public bool LastData { get; set; } = false;
+
     }
 
     public class DData
@@ -59,11 +66,19 @@
         foreach (var item in devices)
         {
             if (item.Id == dData.Id) item.DeviceData = dData.DeviceData;
+            var lastitem = dData.Id;
         }
 
 
     }
 
+    private async Task NewDevice(Device device)
+    {
+        devices.Add(device);
+        
+    }
+
+    
 }
 
 

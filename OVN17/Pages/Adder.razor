@@ -1,0 +1,55 @@
+﻿@page "/adder"
+@using static OVN17.Pages.Index
+
+
+<h4>Add Device</h4>
+
+
+
+
+
+
+
+
+
+<div class="input-group">
+    <input @bind="device.Id" type="text"  placeholder=" DeviceId">
+    <input @bind="device.Name" type="text"  placeholder=" DeviceName">
+    <input @bind="device.DeviceData" type="text"  placeholder=" DeviceData">
+    <input @bind="device.Active" type="checkbox"  placeholder=" Status">
+    <div class="input-group-append">
+        <button @onclick="OnAdd" @onclick:preventDefault="true" type="submit" class="btn btn-info">Add</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@code 
+{
+    private Device device = new Device();
+    
+
+    [Parameter]
+    public EventCallback<Device> ddevice { get; set; } 
+
+
+    public async Task OnAdd()
+    {
+        
+        await ddevice.InvokeAsync(device);
+    }
+}
+
+

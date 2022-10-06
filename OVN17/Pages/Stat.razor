@@ -1,7 +1,7 @@
 ﻿@page "/stat"
 @using static OVN17.Pages.Index
 
-    <div class=" container border border-primary">
+    <div class=" container border border-primary col-8">
         <div class="row ">
             <div class="text-center">
             OverView
@@ -9,16 +9,34 @@
         </div>
     <div class="row">
         
-        <div class=" col-2">Devices</div>
-        <div class=" col-2">Working</div>
-        <div class=" col-2">Last Changed</div>
+        <div class=" col-3">Devices</div>
+        <div class=" col-3">Working</div>
+        <div class=" col-3"> % Working</div>
+
+        <div class=" col-3">Last Changed</div>
     </div>
 
     <div class="row">
         
-        <div class=" col-2">@test?.Count()</div>
-        <div class=" col-2">@test?.Where(g=>g.Active==true).Count()</div>
+        <div class=" col-3">@test?.Count()</div>
+        <div class=" col-3">@test?.Where(g=>g.Active==true).Count()</div>
+        @{
+            int a = @test.Count();
+            int b = test.Where(g => g.Active == true).Count();
+            if (a == 0) b = 1;
+            int c = 0;
+            c = (100 * b) / a;
 
+
+        }
+        <div class=" col-3">@c</div>
+        @foreach (var item in test)
+       {
+           if (item.LastData == true)
+           {
+                <div class=" col-3">@item.Id</div>
+            }
+       }
     </div>
 
 
@@ -37,5 +55,5 @@
 @code {
     [Parameter]
     public List<Device> test { get; set; }
-
+   
 }
